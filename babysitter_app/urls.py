@@ -2,8 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
-from .views import SitterList, ProfileView, ProfilePictureUploadView, UpdateParentProfileView, UpdateSitterProfileView, RequestSitterView, UserProfileView, SitterBookingsView, ParentBookingsView,CancelBookingView,  UpdateBookingStatusView ,CurrentUserView, JobListView, SitterDetail, RegisterAPIView, LoginAPIView, UserListView, CreateSitterView, UpdateSitterView, ParentCreateView, ParentUpdateView, ParentDeleteView
-
+from .views import SitterList,mark_job_completed, ProfileView, ProfilePictureUploadView, UpdateParentProfileView, UpdateSitterProfileView, RequestSitterView, UserProfileView, SitterBookingsView, ParentBookingsView,CancelBookingView,  UpdateBookingStatusView ,CurrentUserView, JobListView, SitterDetail, RegisterAPIView, LoginAPIView, UserListView, CreateSitterView, UpdateSitterView, ParentCreateView, ParentUpdateView, ParentDeleteView
 urlpatterns = [
     path('', views.home, name='home'),
     path("api/register/", RegisterAPIView.as_view(), name="api-register"),

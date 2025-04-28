@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
-from .views import SitterList, ProfileView, ProfilePictureUploadView, UpdateParentProfileView, UpdateSitterProfileView, RequestSitterView, UserProfileView, SitterBookingsView, ParentBookingsView,CancelBookingView,  UpdateBookingStatusView ,CurrentUserView, JobListView, SitterDetail, RegisterAPIView, LoginAPIView, UserListView, CreateSitterView, UpdateSitterView, ParentCreateView, ParentUpdateView, ParentDeleteView
+from .views import SitterList, ProfileView, mark_job_completed, ProfilePictureUploadView, UpdateParentProfileView, UpdateSitterProfileView, RequestSitterView, UserProfileView, SitterBookingsView, ParentBookingsView,CancelBookingView,  UpdateBookingStatusView ,CurrentUserView, JobListView, SitterDetail, RegisterAPIView, LoginAPIView, UserListView, CreateSitterView, UpdateSitterView, ParentCreateView, ParentUpdateView, ParentDeleteView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -39,5 +39,5 @@ urlpatterns = [
     path("profile/parent/", UpdateParentProfileView.as_view(), name="update_parent_profile"),
     path("api/profile/upload-picture/", ProfilePictureUploadView.as_view(), name="upload-profile-picture"),
     path("api/profile/", ProfileView.as_view(), name="user-profile"),
-
+    path('api/jobs/<int:id>/complete/', mark_job_completed, name='mark_job_completed'),
 ]
